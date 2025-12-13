@@ -1,0 +1,82 @@
+{
+  "FL": {
+    "ns_name": "FL",
+    "ns_description": "Federated Learning NS",
+    "source_latitude": "24.00000",
+    "source_longitude": "151.00000",
+    "destination_latitude": "20.00000",
+    "destination_longitude": "-151.00000",
+    "vnfs": [
+      {
+        "vnf_name": "FL_client",
+        "cpu": 2,
+        "memory": 2,
+        "storage": 20,
+        "min_vm": 1,
+        "max_vm": 3,
+        "image": "jammy-server-cloudimg-amd64",
+        "sat_id": 305
+      },
+      {
+        "vnf_name": "FL_server",
+        "cpu": 2,
+        "memory": 2,
+        "storage": 20,
+        "min_vm": 1,
+        "max_vm": 3,
+        "image": "jammy-server-cloudimg-amd64",
+        "sat_id": 307
+      }
+    ]
+  },
+  "test": {
+    "ns_name": "test",
+    "ns_description": "Federated Learning NS",
+    "source_latitude": "24.00000",
+    "source_longitude": "151.00000",
+    "destination_latitude": "20.00000",
+    "destination_longitude": "-151.00000",
+    "vnfs": [
+      {
+        "vnf_name": "1",
+        "id": 1,
+        "cpu": 2,
+        "memory": 2,
+        "storage": 20,
+        "min_vm": 1,
+        "max_vm": 3,
+        "image": "jammy-server-cloudimg-amd64",
+        "sat_id": 209
+      },
+      {
+        "vnf_name": "2",
+        "id": 2,
+        "cpu": 2,
+        "memory": 2,
+        "storage": 20,
+        "min_vm": 1,
+        "max_vm": 3,
+        "image": "jammy-server-cloudimg-amd64",
+        "sat_id": 210
+      },
+      {
+        "vnf_name": "3",
+        "id": 3,
+        "cpu": 2,
+        "memory": 2,
+        "storage": 20,
+        "min_vm": 1,
+        "max_vm": 3,
+        "image": "jammy-server-cloudimg-amd64",
+        "sat_id": 308
+      }
+    ],
+    "path": [
+      209,
+      209,
+      210,
+      308,
+      308
+    ]
+  }
+}

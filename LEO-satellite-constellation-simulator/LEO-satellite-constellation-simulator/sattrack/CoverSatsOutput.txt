@@ -1,0 +1,37 @@
+**********************************************
+parameters:
+----------------------------------------------
+ISLbackAngle: 180
+ISLfrontAngle: 0
+ISLleftAngle: 180
+ISLrightAngle: 0
+PAT_time: 0
+TLE_inputFileName: TLE_6P_22Sats.txt
+acceptableAzimuthDif: 155
+acceptableElevationDif: 45
+acceptableRange: 5000
+closeLinkSimulateTime: 20
+closeLinksFileName: closeLink.txt
+endTime: 712
+execute_function: printStationCoverSats
+groundStationAcceptableDistance: 1000000000
+groundStationAcceptableElevation: 30
+maxLatitude: 40
+minLatitude: -40
+nSat: 2
+observerId: 207
+otherId: 308
+outputFileName: CoverSats.txt
+printSecond: Y
+round: Y
+satFailSimulateTime: 10000
+startTime: 660
+stationAltitude: 0.192742
+stationAltitude1: 0.01
+stationAltitude2: 0.01
+stationLatitude: 24.00000
+stationLongitude: 151.00000
+time: 37439
+**********************************************
+running function printStationCoverSats...
+cpu_time_used: 0.005191

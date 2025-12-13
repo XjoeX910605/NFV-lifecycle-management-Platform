@@ -1,0 +1,31 @@
+nsd:
+  nsd:
+  - id: FL
+    name: FL
+    designer: OSM
+    description: Federated Learning NS
+    version: '1.0'
+    vnfd-id:
+    - FL_client
+    - FL_server
+    df:
+    - id: default-df
+      vnf-profile:
+      - id: '1'
+        vnfd-id: FL_client
+        virtual-link-connectivity:
+        - virtual-link-profile-id: FL_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '1'
+            constituent-cpd-id: vnf-cp0-ext
+      - id: '2'
+        vnfd-id: FL_server
+        virtual-link-connectivity:
+        - virtual-link-profile-id: FL_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '2'
+            constituent-cpd-id: vnf-cp0-ext
+    virtual-link-desc:
+    - id: FL_nsd_vld0
+      mgmt-network: true
+      vim-network-name: private
