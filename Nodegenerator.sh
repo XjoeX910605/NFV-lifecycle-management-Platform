@@ -95,6 +95,7 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
         
         if [ "$STATUS" == "active" ]; then
             installed=1
+            sleep 20  # 等待服務穩定
             echo -e "\n✅ [Host] 檢測到 Nova CPU 服務已啟動！安裝完成。"
 
             # === ✨ 新增功能：顯示 Log 最後 40 行 ===
@@ -102,6 +103,9 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
             echo "---------------------------------------------------------------"
             sshpass -p "$PASS" ssh -n -o StrictHostKeyChecking=no stack@$VM_IP "tail -n 40 /opt/stack/logs/stack.sh.log"
             echo "---------------------------------------------------------------"
+        else
+            # 安裝中：顯示進度
+            echo -ne "\033[2K\r    🔄 安裝進行中... 已耗時 ${elapsed} 秒 (服務狀態: $STATUS)"
         fi
         
         if [ $elapsed -gt 2400 ]; then
