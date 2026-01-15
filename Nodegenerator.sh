@@ -18,6 +18,10 @@ echo "🚀 [Client] 連線到 KVM ($KVM_HOST) 開始作業..."
 
 ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLER_IP" "$ROOT_PASS"
 
+    
+    T1=$(date +%s.%N)
+    echo "T1 : $T1"
+
     NAME="$1"
     CTRL_IP="$2"
     PASS="$3"
@@ -44,6 +48,9 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
           --import --noautoconsole --network network=network,model=virtio --network network=network,model=virtio --graphics none
     fi
 
+    T2=$(date +%s.%N)
+    echo "T2 : $T2"
+
     echo "⏳ [Host] 等待 IP..."
     VM_IP=""
     while [ -z "$VM_IP" ]; do
@@ -54,7 +61,9 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
 
     echo "📡 [Host] 等待 SSH..."
     while ! nc -z "$VM_IP" 22; do sleep 3; done
-    sleep 10
+    sleep 5
+    T3=$(date +%s.%N)
+    echo "T3 : $T3"
 
     # ========================================================
     # 🌟 修改重點：步驟 4 (背景執行 + 監控)
@@ -98,6 +107,9 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
             sleep 20  # 等待服務穩定
             echo -e "\n✅ [Host] 檢測到 Nova CPU 服務已啟動！安裝完成。"
 
+            T4=$(date +%s.%N)
+            echo "T4 : $T4"
+
             # === ✨ 新增功能：顯示 Log 最後 40 行 ===
             echo -e "\n📄 [Host] 顯示安裝日誌最後 40 行 (/opt/stack/logs/stack.sh.log)..."
             echo "---------------------------------------------------------------"
@@ -135,7 +147,33 @@ ssh $KVM_USER@$KVM_HOST "sudo bash -s" << 'REMOTE_SCRIPT' "$VM_NAME" "$CONTROLLE
     sshpass -p "$PASS" ssh -n -o StrictHostKeyChecking=no stack@$CTRL_IP \
         "cd ~/devstack && source openrc admin demo && echo '$PASS' | sudo -S /opt/stack/data/venv/bin/nova-manage cell_v2 discover_hosts --verbose"
 
-    echo "🎉 [Host] 全部流程大功告成！"
+    T5=$(date +%s.%N)
+    echo "T5 : $T5"
+
+    echo " [Host] 全部流程大功告成！"
+
+    echo " [Performance Report] Time Breakdown:"
+    echo "------------------------------------------------"
+    # 使用 awk 進行浮點數運算
+    t_sng=$(awk "BEGIN {print $T2 - $T1}")
+    t_boot=$(awk "BEGIN {print $T3 - $T2}")
+    t_setup=$(awk "BEGIN {print $T4 - $T3}")
+    t_reg=$(awk "BEGIN {print $T5 - $T4}")
+    t_total=$(awk "BEGIN {print $T5 - $T1}")
+
+    echo "T1 : $T1"
+    echo "T2 : $T2"
+    echo "T3 : $T3"
+    echo "T4 : $T4"
+    echo "T5 : $T5"
+    echo "------------------------------------------------"
+    echo "T_sng ($t_sng s)"
+    echo "T_boot ($t_boot s)"
+    echo "T_setup ($t_setup s)"
+    echo "T_reg ($t_reg s)"
+    echo "------------------------------------------------"
+    echo "TOTAL Construction Latency: $t_total seconds"
+    echo "------------------------------------------------"
 
 REMOTE_SCRIPT
 
