@@ -1,0 +1,1 @@
+ef601fdc0de106ef678811b2dba1d0ea	test_1vnf_ns/test_1vnf_nsd.yaml

@@ -1,0 +1,23 @@
+nsd:
+  nsd:
+  - id: test_1vnf
+    name: test_1vnf
+    designer: OSM
+    description: tset 1 vnf
+    version: '1.0'
+    vnfd-id:
+    - test_01
+    df:
+    - id: default-df
+      vnf-profile:
+      - id: '1'
+        vnfd-id: test_01
+        virtual-link-connectivity:
+        - virtual-link-profile-id: test_1vnf_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '1'
+            constituent-cpd-id: vnf-cp0-ext
+    virtual-link-desc:
+    - id: test_1vnf_nsd_vld0
+      mgmt-network: true
+      vim-network-name: private

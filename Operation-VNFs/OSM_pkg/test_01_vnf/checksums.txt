@@ -1,0 +1,1 @@
+148fc1dee69456fe21692aca5b5afac6	test_01_vnf/test_01_vnfd.yaml

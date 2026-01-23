@@ -1,0 +1,1 @@
+fa38671bf4bf36edcf8772aa2a33a413	test_03_vnf/test_03_vnfd.yaml

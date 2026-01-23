@@ -9,6 +9,7 @@ CONFIG_FILE = "ns_vnf_config.json"
 
 
 GREEN = '\033[38;5;82m'
+RED = '\033[91m'
 NC = '\033[0m'  # No Color
 
 def load_config(ns_name):
@@ -93,7 +94,7 @@ def generate_vnfd_yaml(vnf, base_dir="./OSM_pkg"):
     image_src = os.path.join("../images", image_filename)
     vnf_folder = os.path.join(base_dir, f"{vnf['vnf_name']}_vnf")
     remote_user = "stack"
-    remote_ip = "192.168.100.149"
+    remote_ip = "192.168.100.148"
     remote_image_path = f"/home/{remote_user}/images/{image_filename}"
 
     if os.path.exists(image_src):

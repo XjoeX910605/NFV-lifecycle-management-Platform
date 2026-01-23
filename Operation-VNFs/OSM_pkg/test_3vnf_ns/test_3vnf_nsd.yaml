@@ -1,0 +1,39 @@
+nsd:
+  nsd:
+  - id: test_3vnf
+    name: test_3vnf
+    designer: OSM
+    description: tset 3 vnf
+    version: '1.0'
+    vnfd-id:
+    - test_01
+    - test_02
+    - test_03
+    df:
+    - id: default-df
+      vnf-profile:
+      - id: '1'
+        vnfd-id: test_01
+        virtual-link-connectivity:
+        - virtual-link-profile-id: test_3vnf_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '1'
+            constituent-cpd-id: vnf-cp0-ext
+      - id: '2'
+        vnfd-id: test_02
+        virtual-link-connectivity:
+        - virtual-link-profile-id: test_3vnf_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '2'
+            constituent-cpd-id: vnf-cp0-ext
+      - id: '3'
+        vnfd-id: test_03
+        virtual-link-connectivity:
+        - virtual-link-profile-id: test_3vnf_nsd_vld0
+          constituent-cpd-id:
+          - constituent-base-element-id: '3'
+            constituent-cpd-id: vnf-cp0-ext
+    virtual-link-desc:
+    - id: test_3vnf_nsd_vld0
+      mgmt-network: true
+      vim-network-name: private

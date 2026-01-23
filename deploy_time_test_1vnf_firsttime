@@ -1,0 +1,235 @@
+[38;5;82m
+選擇您要執行的操作:[0m
+1. 修改NS相關資訊
+2. 部署NS
+3. Scaling NS
+4. Migrate NS
+5. 退出
+[38;5;82m請選擇操作: [0m[38;5;82m請輸入要部署的NS名稱: [0m[93m部署NS: test_1vnf...[0m
+[38;5;82m正在執行 VNF Placement 決策模組[0m
+
+
+{'ns_name': 'test_1vnf', 'ns_description': 'tset 1 vnf', 'source_latitude': '24.00000', 'source_longitude': '151.00000', 'destination_latitude': '20.00000', 'destination_longitude': '-151.00000', 'vnfs': [{'vnf_name': 'test_01', 'id': 1, 'cpu': 2, 'memory': 2, 'storage': 20, 'min_vm': 1, 'max_vm': 1, 'image': 'test_vnf', 'sat_id': 305}], 'path': [305, 305, 308]}
+
+Content from /home/wmnet/platform/VNF-control/../LEO-satellite-constellation-simulator/LEO-satellite-constellation-simulator/sattrack/parameter_example.txt has been written to /home/wmnet/platform/VNF-control/../LEO-satellite-constellation-simulator/LEO-satellite-constellation-simulator/sattrack/parameter.txt.
+
+
+Latitude and longitude have been appended to the file......................
+
+
+Executing ./satrrack.......................................................
+
+
+Executing ./satrrack successfully. Output in HopCountPath.txt..............
+
+
+Available Sats List 1: [209, 305]
+Available Sats List 2: [308, 405]
+Path List: [[209, 210, 211, 308], [209, 210, 211, 308, 405], [305, 306, 307, 308], [305, 306, 307, 308, 405]]
+
+[93m▶ 正在檢查路徑 1: [209, 210, 211, 308][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 209：可用 CPU=2, Mem=31GB, Disk=111GB
+[91m    ⚠ CPU 使用率將達 100.0% 超過上限90.0%[0m
+[91m    ❌ 衛星 209 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 210：可用 CPU=1, Mem=9GB, Disk=41GB
+[91m    ❌ 衛星 210 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 211：可用 CPU=15, Mem=0GB, Disk=72GB
+[91m    ❌ 衛星 211 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 308：可用 CPU=1, Mem=12GB, Disk=22GB
+[91m    ❌ 衛星 308 資源不足，無法部署此 VNF[0m
+[91m  ✘ 無法為 VNF：test_01 找到合適的衛星，此路徑部署失敗[0m
+
+[93m▶ 正在檢查路徑 2: [209, 210, 211, 308, 405][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 209：可用 CPU=2, Mem=31GB, Disk=111GB
+[91m    ⚠ CPU 使用率將達 100.0% 超過上限90.0%[0m
+[91m    ❌ 衛星 209 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 210：可用 CPU=1, Mem=9GB, Disk=41GB
+[91m    ❌ 衛星 210 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 211：可用 CPU=15, Mem=0GB, Disk=72GB
+[91m    ❌ 衛星 211 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 308：可用 CPU=1, Mem=12GB, Disk=22GB
+[91m    ❌ 衛星 308 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 405：可用 CPU=3, Mem=30GB, Disk=287GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 405[0m
+[38;5;82m
+  ✅ 路徑 [209, 210, 211, 308, 405] 可成功部署所有 VNF[0m
+
+[93m▶ 正在檢查路徑 3: [305, 306, 307, 308][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 305：可用 CPU=5, Mem=39GB, Disk=12GB
+[91m    ❌ 衛星 305 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 306：可用 CPU=5, Mem=9GB, Disk=33GB
+[91m    ⚠ Disk 使用率將達 93.7% 超過上限90.0%[0m
+[91m    ❌ 衛星 306 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 307：可用 CPU=3, Mem=12GB, Disk=173GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 307[0m
+[38;5;82m
+  ✅ 路徑 [305, 306, 307, 308] 可成功部署所有 VNF[0m
+
+[93m▶ 正在檢查路徑 4: [305, 306, 307, 308, 405][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 305：可用 CPU=5, Mem=39GB, Disk=12GB
+[91m    ❌ 衛星 305 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 306：可用 CPU=5, Mem=9GB, Disk=33GB
+[91m    ⚠ Disk 使用率將達 93.7% 超過上限90.0%[0m
+[91m    ❌ 衛星 306 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 307：可用 CPU=3, Mem=12GB, Disk=173GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 307[0m
+[38;5;82m
+  ✅ 路徑 [305, 306, 307, 308, 405] 可成功部署所有 VNF[0m
+
+[38;5;82m符合條件的路徑與部署方案如下：[0m
+
+方案 1:
+  Path: [209, 210, 211, 308, 405]
+  - test_01 部署於衛星 405
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=87.5%, Mem=10.0%, Disk=44.9%
+  ➤ 權重後分數（越低越好）：0.4745
+
+方案 2:
+  Path: [305, 306, 307, 308]
+  - test_01 部署於衛星 307
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=75.0%, Mem=36.6%, Disk=30.8%
+  ➤ 權重後分數（越低越好）：0.4728
+
+方案 3:
+  Path: [305, 306, 307, 308, 405]
+  - test_01 部署於衛星 307
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=75.0%, Mem=36.6%, Disk=30.8%
+  ➤ 權重後分數（越低越好）：0.4728
+
+[93m最佳部署方案（依資源使用率）為：[0m
+  Path: [305, 306, 307, 308]
+  - test_01 部署於衛星 307
+  ✦ 資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=75.0%, Mem=36.6%, Disk=30.8%
+  ➤ 使用者權重：CPU=0.33, MEM=0.33, DISK=0.34
+  ➤ 權重後分數（越低越好）：0.4728
+[38;5;82m✔ 已新增 path 欄位: [305, 307, 308][0m
+[38;5;82m
+Successfully updated 'sat_id' in ns_vnf_config.json for NS: test_1vnf
+[0m
++------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field            | Value                                                                                                                                                                                                                                                                                                                 |
++------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| checksum         | 458301c3c514f91b809f169c49da0a43                                                                                                                                                                                                                                                                                      |
+| container_format | bare                                                                                                                                                                                                                                                                                                                  |
+| created_at       | 2026-01-23T08:50:29Z                                                                                                                                                                                                                                                                                                  |
+| disk_format      | qcow2                                                                                                                                                                                                                                                                                                                 |
+| file             | /v2/images/98d55dc6-ab4c-4214-9f39-337e92e3ba32/file                                                                                                                                                                                                                                                                  |
+| id               | 98d55dc6-ab4c-4214-9f39-337e92e3ba32                                                                                                                                                                                                                                                                                  |
+| min_disk         | 0                                                                                                                                                                                                                                                                                                                     |
+| min_ram          | 0                                                                                                                                                                                                                                                                                                                     |
+| name             | test_vnf                                                                                                                                                                                                                                                                                                              |
+| owner            | b99adec1499d4f56bf9dd411dfed8b94                                                                                                                                                                                                                                                                                      |
+| properties       | os_hash_algo='sha512', os_hash_value='0c0802f126784a579556f787d2616be9a80d6113329c4c6974f17d3e633f1b5d377deb26cc50ca7147463c270fbfe022b5e9366169e68e8acd3398d34de0dd80', os_hidden='False', owner_specified.openstack.md5='', owner_specified.openstack.object='images/test_vnf', owner_specified.openstack.sha256='' |
+| protected        | False                                                                                                                                                                                                                                                                                                                 |
+| schema           | /v2/schemas/image                                                                                                                                                                                                                                                                                                     |
+| size             | 668097536                                                                                                                                                                                                                                                                                                             |
+| status           | active                                                                                                                                                                                                                                                                                                                |
+| tags             |                                                                                                                                                                                                                                                                                                                       |
+| updated_at       | 2026-01-23T08:50:38Z                                                                                                                                                                                                                                                                                                  |
+| virtual_size     | 2361393152                                                                                                                                                                                                                                                                                                            |
+| visibility       | public                                                                                                                                                                                                                                                                                                                |
++------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+./OSM_pkg/test_1vnf_ns
+├── Files
+│   └── icons
+├── Licenses
+├── Scripts
+│   └── charms
+└── test_1vnf_nsd.yaml
+
+5 directories, 1 file
+./OSM_pkg/test_01_vnf
+├── Files
+│   ├── icons
+│   └── images
+├── Licenses
+├── Scripts
+│   ├── charms
+│   ├── cloud_init
+│   └── scripts
+└── test_01_vnfd.yaml
+
+8 directories, 1 file
+[38;5;82m正在上傳映像檔至 192.168.100.148...[0m
+[38;5;82m映像檔 test_vnf.img 已上傳至遠端 ~/images/[0m
+[38;5;82m正在遠端執行 OpenStack 映像建立...[0m
+[38;5;82mOpenStack 映像檔 test_vnf 建立完成[0m
+
+[38;5;82m成功建立 test_1vnf_ns 與 1 個 VNF 目錄及檔案[0m
+
+
+c319143d-3656-43ac-94fa-aa1fc83227dc
+[38;5;82m[部署流程開始] NS: test_1vnf[0m
+[38;5;82m[Phase 1] 執行部署決策 (VnfPlacement)...[0m
+[38;5;82m決策完成，設定檔已更新。[0m
+[38;5;82m[Phase 2] 生成descriptor與打包 (Generate & Package)...[0m
+[38;5;82m
+正在打包 VNF 套件：test_01_vnf[0m
+[38;5;82m打包成功：
+Validating package OSM_pkg/test_01_vnf
+Validation OK
+List of charms in the descriptor: set()
+Adding File: test_01_vnf
+Package created: OSM_pkg/test_01_vnf.tar.gz
+OSM_pkg/test_01_vnf.tar.gz
+[0m
+[38;5;82m正在打包 NS 套件：test_1vnf_ns[0m
+[38;5;82m打包成功：
+Validating package OSM_pkg/test_1vnf_ns
+Validation OK
+List of charms in the descriptor: set()
+Adding File: test_1vnf_ns
+Package created: OSM_pkg/test_1vnf_ns.tar.gz
+OSM_pkg/test_1vnf_ns.tar.gz
+[0m
+[38;5;82m[Phase 3] 上傳套件至 OSM (Onboarding)...[0m
+[38;5;82m正在上傳 VNF 套件：test_01_vnf[0m
+[91m上傳失敗：
+[0m
+[38;5;82m正在上傳 NS 套件：test_1vnf_ns[0m
+[91m上傳失敗：
+[0m
+[38;5;82m[Phase 4] 執行 NS Instantiation (osm ns-create)...[0m
+[38;5;82m[完成][0m NS test_1vnf 部署成功。
+
+=============================================
+   DEPLOYMENT LATENCY REPORT: test_1vnf
+=============================================
+ [T1] Start      : 1769158215.2221
+ [T2] Pkg Start  : 1769158216.8378
+ [T3] Onb Start  : 1769158240.1093
+ [T4] Inst Start : 1769158244.5647
+ [T5] Finish     : 1769158323.8740
+---------------------------------------------
+ 1. Decision Time (t_dec) : 1.6157 s
+ 2. Packaging Time (t_pkg): 23.2715 s
+ 3. Onboarding Time (t_onb): 4.4554 s
+ 4. Instantiation (t_inst): 79.3094 s
+---------------------------------------------
+ TOTAL LATENCY (T_total)  : 108.6519 s
+=============================================
+
+[93mNS部署成功
+[0m
+[38;5;82m
+選擇您要執行的操作:[0m
+1. 修改NS相關資訊
+2. 部署NS
+3. Scaling NS
+4. Migrate NS
+5. 退出
+[38;5;82m請選擇操作: [0m[91m
+退出操作...
+[0m

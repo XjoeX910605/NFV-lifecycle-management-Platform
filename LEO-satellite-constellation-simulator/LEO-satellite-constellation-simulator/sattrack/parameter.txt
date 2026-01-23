@@ -134,8 +134,9 @@ printStationCoverSatsPerSecond,
 >>(satFailSimulateTime):(10000)
 
 
->>(stationLatitude): (24.00000)
->>(stationLongitude): (151.00000)
->>(outputFileName): (CoverSats.txt)
->>(execute_function): (printStationCoverSats)
->>(time):(37439)second
+>>(stationLatitude1): (24.00000)
+>>(stationLongitude1): (151.00000)
+>>(stationLatitude2): (20.00000)
+>>(stationLongitude2): (-151.00000)
+>>(outputFileName): (HopCountPath.txt)
+>>(execute_function): (printStationHopcountPath)

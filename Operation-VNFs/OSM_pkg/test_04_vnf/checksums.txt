@@ -1,0 +1,1 @@
+5f0d3b0cf62d13228802da765b55be16	test_04_vnf/test_04_vnfd.yaml

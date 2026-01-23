@@ -3,7 +3,8 @@ import subprocess
 import json
 import os
 import random
-
+import time
+import json
 
 CONFIG_FILE = "ns_vnf_config.json"
 remote_user="stack"
@@ -80,50 +81,90 @@ def deploy(ns_name):
     3. 打包並上傳 NS package
     4. 執行 osm ns-create 建立 NS instance
     """
-    print(f"{GREEN}[部署中] 執行 Network Service 部署：{ns_name}{NC}")
+    print(f"{GREEN}[部署流程開始] NS: {ns_name}{NC}")
+    # [T1] 部署開始 (Start)
+    T1 = time.time()
 
-    # 1. 透過外部腳本自動產生 OSM descriptor（Generate_OSM_pkg.py）
+    # Phase 1: Decision Making (決策階段 t_dec)
+    print(f"{GREEN}[Phase 1] 執行部署決策 (VnfPlacement)...{NC}")
+
+    # 呼叫 VnfPlacement.py，傳入 ns_name
+    placement_script = os.path.join("..", "VNF-control", "VnfPlacement.py")
+    
+    try:
+        # 執行演算法並更新 ns_vnf_config.json 中的 sat_id 與 path
+        subprocess.run(["python3", placement_script, ns_name], check=True)
+        print(f"{GREEN}決策完成，設定檔已更新。{NC}")
+    except subprocess.CalledProcessError as e:
+        print(f"{RED}決策模組執行失敗：{e}{NC}")
+        return
+    
+    # [T2] 決策結束 -> 進入打包 (End of Dec, Start of Pkg)
+    T2 = time.time()
+
+    # Phase 2: Packaging (打包階段 t_pkg)
+    print(f"{GREEN}[Phase 2] 生成descriptor與打包 (Generate & Package)...{NC}")
+
+    # 透過外部腳本自動產生 OSM descriptor（Generate_OSM_pkg.py）
     try:
         subprocess.run(["python3", "Generate_OSM_pkg.py", ns_name], check=True)
     except subprocess.CalledProcessError as e:
         print(f"{RED}產生 OSM pkg 失敗：{e}{NC}")
-        return
+        return None
 
-    # 2. 讀取配置檔，確定 NS 與 VNF 相關資訊
+    # 讀取配置檔，確定 NS 與 VNF 相關資訊
     config = load_config()
     ns_info = config.get(ns_name)
     if not ns_info:
         print(f"{RED}找不到 NS 名稱：{ns_name}{NC}")
         return
 
-    # 3. 依序打包並上傳每個 VNF package
-    for vnf in ns_info.get("vnfs", []):
+    # 依序打包每個 VNF package
+    vnf_list = ns_info.get("vnfs", [])
+    for vnf in vnf_list:
         vnf_name = vnf.get("vnf_name")
         if vnf_name:
             vnf_pkg_folder = f"{vnf_name}_vnf"
             print(f"{GREEN}\n正在打包 VNF 套件：{vnf_pkg_folder}{NC}")
             build_osm_pkg_targz(vnf_pkg_folder)
 
-            print(f"{GREEN}正在上傳 VNF 套件：{vnf_pkg_folder}{NC}")
-            upload_osm_pkg_targz(vnf_pkg_folder)
-        else:
-            print(f"{RED}VNF 缺少名稱，略過。{NC}")
 
-    # 4. 打包並上傳 NS package
+    # 打包 NS package
     ns_pkg_folder = f"{ns_name}_ns"
     print(f"{GREEN}正在打包 NS 套件：{ns_pkg_folder}{NC}")
     build_osm_pkg_targz(ns_pkg_folder)
 
+    # [T3] 打包結束 -> 進入上架 (End of Pkg, Start of Onb)
+    T3 = time.time()
+
+    # Phase 3: Onboarding (上架階段 t_onb)
+    print(f"{GREEN}[Phase 3] 上傳套件至 OSM (Onboarding)...{NC}")
+
+    # 上傳所有 VNF package
+    for vnf in vnf_list:
+        vnf_name = vnf.get("vnf_name")
+        if vnf_name:
+            vnf_pkg_folder = f"{vnf_name}_vnf"
+            print(f"{GREEN}正在上傳 VNF 套件：{vnf_pkg_folder}{NC}")
+            upload_osm_pkg_targz(vnf_pkg_folder)
+
+    # 上傳 NS package
     print(f"{GREEN}正在上傳 NS 套件：{ns_pkg_folder}{NC}")
     upload_osm_pkg_targz(ns_pkg_folder)
 
-    # 5. 部署 NS instance
+    # [T4] 上架結束 -> 進入實例化 (End of Onb, Start of Inst)
+    T4 = time.time()
+
+    # Phase 4: Instantiation (實例化階段 t_inst)
+    print(f"{GREEN}[Phase 4] 執行 NS Instantiation (osm ns-create)...{NC}")
+
+    # 部署 NS instance
     try:
         subprocess.run(
             ["osm", "ns-create",
              "--ns_name", ns_name,
              "--nsd_name", ns_name,
-             "--vim_account", "openstack-multinode",
+             "--vim_account", "Openstack_multinode",
              "--wait"],
             check=True
         )
@@ -131,6 +172,36 @@ def deploy(ns_name):
     except subprocess.CalledProcessError as e:
         print(f"{RED}部署 NS 失敗：\n{e.stderr}{NC}")
         return
+    
+    # [T5] 部署完成 (Finish)
+    # ==========================================
+    T5 = time.time()
+
+    # ------------------------------------------
+    # 計算並輸出數據 (Performance Report)
+    # ------------------------------------------
+    t_dec = T2 - T1
+    t_pkg = T3 - T2
+    t_onb = T4 - T3
+    t_inst = T5 - T4
+    T_total = T5 - T1
+
+    print("\n" + "="*45)
+    print(f"   DEPLOYMENT LATENCY REPORT: {ns_name}")
+    print("="*45)
+    print(f" [T1] Start      : {T1:.4f}")
+    print(f" [T2] Pkg Start  : {T2:.4f}")
+    print(f" [T3] Onb Start  : {T3:.4f}")
+    print(f" [T4] Inst Start : {T4:.4f}")
+    print(f" [T5] Finish     : {T5:.4f}")
+    print("-" * 45)
+    print(f" 1. Decision Time (t_dec) : {t_dec:.4f} s")
+    print(f" 2. Packaging Time (t_pkg): {t_pkg:.4f} s")
+    print(f" 3. Onboarding Time (t_onb): {t_onb:.4f} s")
+    print(f" 4. Instantiation (t_inst): {t_inst:.4f} s")
+    print("-" * 45)
+    print(f" TOTAL LATENCY (T_total)  : {T_total:.4f} s")
+    print("="*45 + "\n")
 
 # --------- 以下為 Scaling 所需的輔助函式 ----------
 

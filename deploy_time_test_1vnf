@@ -1,0 +1,203 @@
+[38;5;82m
+選擇您要執行的操作:[0m
+1. 修改NS相關資訊
+2. 部署NS
+3. Scaling NS
+4. Migrate NS
+5. 退出
+[38;5;82m請選擇操作: [0m[38;5;82m請輸入要部署的NS名稱: [0m[93m部署NS: test_1vnf...[0m
+[38;5;82m正在執行 VNF Placement 決策模組[0m
+
+
+{'ns_name': 'test_1vnf', 'ns_description': 'tset 1 vnf', 'source_latitude': '24.00000', 'source_longitude': '151.00000', 'destination_latitude': '20.00000', 'destination_longitude': '-151.00000', 'vnfs': [{'vnf_name': 'test_01', 'id': 1, 'cpu': 2, 'memory': 2, 'storage': 20, 'min_vm': 1, 'max_vm': 1, 'image': 'test_vnf', 'sat_id': 307}], 'path': [305, 307, 308]}
+
+Content from /home/wmnet/platform/VNF-control/../LEO-satellite-constellation-simulator/LEO-satellite-constellation-simulator/sattrack/parameter_example.txt has been written to /home/wmnet/platform/VNF-control/../LEO-satellite-constellation-simulator/LEO-satellite-constellation-simulator/sattrack/parameter.txt.
+
+
+Latitude and longitude have been appended to the file......................
+
+
+Executing ./satrrack.......................................................
+
+
+Executing ./satrrack successfully. Output in HopCountPath.txt..............
+
+
+Available Sats List 1: [209, 305]
+Available Sats List 2: [308, 405]
+Path List: [[209, 210, 211, 308], [209, 210, 211, 308, 405], [305, 306, 307, 308], [305, 306, 307, 308, 405]]
+
+[93m▶ 正在檢查路徑 1: [209, 210, 211, 308][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 209：可用 CPU=0, Mem=23GB, Disk=191GB
+[91m    ❌ 衛星 209 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 210：可用 CPU=6, Mem=9GB, Disk=195GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 210[0m
+[38;5;82m
+  ✅ 路徑 [209, 210, 211, 308] 可成功部署所有 VNF[0m
+
+[93m▶ 正在檢查路徑 2: [209, 210, 211, 308, 405][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 209：可用 CPU=0, Mem=23GB, Disk=191GB
+[91m    ❌ 衛星 209 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 210：可用 CPU=6, Mem=9GB, Disk=195GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 210[0m
+[38;5;82m
+  ✅ 路徑 [209, 210, 211, 308, 405] 可成功部署所有 VNF[0m
+
+[93m▶ 正在檢查路徑 3: [305, 306, 307, 308][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 305：可用 CPU=7, Mem=0GB, Disk=140GB
+[91m    ❌ 衛星 305 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 306：可用 CPU=14, Mem=12GB, Disk=222GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 306[0m
+[38;5;82m
+  ✅ 路徑 [305, 306, 307, 308] 可成功部署所有 VNF[0m
+
+[93m▶ 正在檢查路徑 4: [305, 306, 307, 308, 405][0m
+
+  嘗試部署 VNF：test_01，需求：CPU=2, Memory=2GB, Disk=20GB
+    ➤ 檢查衛星 305：可用 CPU=7, Mem=0GB, Disk=140GB
+[91m    ❌ 衛星 305 資源不足，無法部署此 VNF[0m
+    ➤ 檢查衛星 306：可用 CPU=14, Mem=12GB, Disk=222GB
+[38;5;82m    ✅ 成功部署 test_01 至衛星 306[0m
+[38;5;82m
+  ✅ 路徑 [305, 306, 307, 308, 405] 可成功部署所有 VNF[0m
+
+[38;5;82m符合條件的路徑與部署方案如下：[0m
+
+方案 1:
+  Path: [209, 210, 211, 308]
+  - test_01 部署於衛星 210
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=50.0%, Mem=75.5%, Disk=62.6%
+  ➤ 權重後分數（越低越好）：0.6270
+
+方案 2:
+  Path: [209, 210, 211, 308, 405]
+  - test_01 部署於衛星 210
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=50.0%, Mem=75.5%, Disk=62.6%
+  ➤ 權重後分數（越低越好）：0.6270
+
+方案 3:
+  Path: [305, 306, 307, 308]
+  - test_01 部署於衛星 306
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=25.0%, Mem=67.1%, Disk=17.9%
+  ➤ 權重後分數（越低越好）：0.3649
+
+方案 4:
+  Path: [305, 306, 307, 308, 405]
+  - test_01 部署於衛星 306
+  ✦ 總資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=25.0%, Mem=67.1%, Disk=17.9%
+  ➤ 權重後分數（越低越好）：0.3649
+
+[93m最佳部署方案（依資源使用率）為：[0m
+  Path: [305, 306, 307, 308]
+  - test_01 部署於衛星 306
+  ✦ 資源使用量：CPU=2, Mem=2048MB, Disk=20GB
+  ➤ 使用率：CPU=25.0%, Mem=67.1%, Disk=17.9%
+  ➤ 使用者權重：CPU=0.33, MEM=0.33, DISK=0.34
+  ➤ 權重後分數（越低越好）：0.3649
+[38;5;82m✔ 已新增 path 欄位: [305, 306, 308][0m
+[38;5;82m
+Successfully updated 'sat_id' in ns_vnf_config.json for NS: test_1vnf
+[0m
+./OSM_pkg/test_1vnf_ns
+├── checksums.txt
+├── Files
+│   └── icons
+├── Licenses
+├── Scripts
+│   └── charms
+└── test_1vnf_nsd.yaml
+
+5 directories, 2 files
+./OSM_pkg/test_01_vnf
+├── checksums.txt
+├── Files
+│   ├── icons
+│   └── images
+├── Licenses
+├── Scripts
+│   ├── charms
+│   ├── cloud_init
+│   └── scripts
+└── test_01_vnfd.yaml
+
+8 directories, 2 files
+[38;5;82mOpenStack 中已存在映像檔：test_vnf，跳過上傳與建立[0m
+
+[38;5;82m成功建立 test_1vnf_ns 與 1 個 VNF 目錄及檔案[0m
+
+
+7da493dd-e576-4481-b963-9577e6872111
+[38;5;82m[部署流程開始] NS: test_1vnf[0m
+[38;5;82m[Phase 1] 執行部署決策 (VnfPlacement)...[0m
+[38;5;82m決策完成，設定檔已更新。[0m
+[38;5;82m[Phase 2] 生成descriptor與打包 (Generate & Package)...[0m
+[38;5;82m
+正在打包 VNF 套件：test_01_vnf[0m
+[38;5;82m打包成功：
+Validating package OSM_pkg/test_01_vnf
+Validation OK
+List of charms in the descriptor: set()
+Adding File: test_01_vnf
+Package created: OSM_pkg/test_01_vnf.tar.gz
+OSM_pkg/test_01_vnf.tar.gz
+[0m
+[38;5;82m正在打包 NS 套件：test_1vnf_ns[0m
+[38;5;82m打包成功：
+Validating package OSM_pkg/test_1vnf_ns
+Validation OK
+List of charms in the descriptor: set()
+Adding File: test_1vnf_ns
+Package created: OSM_pkg/test_1vnf_ns.tar.gz
+OSM_pkg/test_1vnf_ns.tar.gz
+[0m
+[38;5;82m[Phase 3] 上傳套件至 OSM (Onboarding)...[0m
+[38;5;82m正在上傳 VNF 套件：test_01_vnf[0m
+[38;5;82m上傳成功：
+ed34614d-e894-4297-ae5a-141b1035a56c
+[0m
+[38;5;82m正在上傳 NS 套件：test_1vnf_ns[0m
+[38;5;82m上傳成功：
+f422cbf6-f716-42a9-8632-203f361d417e
+[0m
+[38;5;82m[Phase 4] 執行 NS Instantiation (osm ns-create)...[0m
+[38;5;82m[完成][0m NS test_1vnf 部署成功。
+
+=============================================
+   DEPLOYMENT LATENCY REPORT: test_1vnf
+=============================================
+ [T1] Start      : 1769162475.8633
+ [T2] Pkg Start  : 1769162477.2654
+ [T3] Onb Start  : 1769162482.7522
+ [T4] Inst Start : 1769162486.3988
+ [T5] Finish     : 1769162519.5916
+---------------------------------------------
+ 1. Decision Time (t_dec) : 1.4021 s
+ 2. Packaging Time (t_pkg): 5.4868 s
+ 3. Onboarding Time (t_onb): 3.6466 s
+ 4. Instantiation (t_inst): 33.1928 s
+---------------------------------------------
+ TOTAL LATENCY (T_total)  : 43.7283 s
+=============================================
+
+[93mNS部署成功
+[0m
+[38;5;82m
+選擇您要執行的操作:[0m
+1. 修改NS相關資訊
+2. 部署NS
+3. Scaling NS
+4. Migrate NS
+5. 退出
+[38;5;82m請選擇操作: [0m[91m
+退出操作...
+[0m
