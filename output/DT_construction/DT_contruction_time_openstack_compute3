@@ -1,0 +1,96 @@
+🚀 [Client] 連線到 KVM (140.114.77.84) 開始作業...
+T1 : 1769195777.467548787
+========================================
+🏗️ [Host] 建立與啟動節點: openstack_compute3
+========================================
+
+Starting install...
+Domain creation completed.
+T2 : 1769195781.904308699
+⏳ [Host] 等待 IP...
+✅ [Host] VM IP: 192.168.100.149
+📡 [Host] 等待 SSH...
+T3 : 1769195802.038699087
+⚙️ [Host -> VM] 設定主機名稱與 Hosts...
+✅ [Host] 環境設定完成，準備啟動安裝...
+🚀 [Host -> VM] 發送安裝指令 (Fire & Forget)...
+⏳ [Host] 指令已發送，進入監控模式...
+[2K    🔄 安裝進行中... 已耗時 31 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 62 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 92 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 123 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 154 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 185 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 216 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 247 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 278 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 309 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 339 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 370 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 401 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 432 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 462 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 493 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 524 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 555 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 585 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 616 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 647 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 678 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 708 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 740 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 770 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 801 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 832 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 863 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 893 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 924 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 955 秒 (服務狀態: inactive)[2K    🔄 安裝進行中... 已耗時 986 秒 (服務狀態: inactive)
+✅ [Host] 檢測到 Nova CPU 服務已啟動！安裝完成。
+T4 : 1769196846.708799074
+
+📄 [Host] 顯示安裝日誌最後 40 行 (/opt/stack/logs/stack.sh.log)...
+---------------------------------------------------------------
+2026-01-23 19:33:49.837 |     ' /opt/stack/devstack/local.conf
+
+=========================
+DevStack Component Timing
+ (times are in seconds)  
+=========================
+wait_for_service      19
+async_wait             3
+osc                    0
+apt-get              369
+pip_install          219
+apt-get-update        17
+run_process            9
+git_timed            222
+-------------------------
+Unaccounted time     163
+=========================
+Total runtime        1021
+
+=================
+ Async summary
+=================
+ Time spent in the background minus waits: 0 sec
+ Elapsed time: 1021 sec
+ Time if we did everything serially: 1021 sec
+ Speedup:  1
+
+
+
+This is your host IP address: 192.168.100.149
+This is your host IPv6 address: ::1
+
+Services are running under systemd unit files.
+For more information see: 
+https://docs.openstack.org/devstack/latest/systemd.html
+
+DevStack Version: 2025.1
+Change: 05d380613e30eaeda6d3218a974dd02c6d342763 Merge "Restart slapd after cleanup" into stable/2025.1 2025-11-03 19:02:45 +0000
+OS Version: Ubuntu 24.04 noble
+
+---------------------------------------------------------------
+
+🔑 [Host] 同步 Migration 金鑰...
+✅ [Host] 金鑰同步完成。
+🗺️ [Host] 通知 Controller 進行 Mapping...
+[00;36mINFO dbcounter [[01;36mNone req-e4376634-6bac-4c40-82fe-03ec8cc293fb [00;36mNone None[00;36m] [01;35m[00;36mRegistered counter for database nova_api[00m[00m
+[00;32mDEBUG dbcounter [[00;36m-[00;32m] [01;35m[00;32m[263959] Writer thread running[00m [00;33m{{(pid=263959) stat_writer /opt/stack/data/venv/lib/python3.12/site-packages/dbcounter.py:102}}[00m[00m
+Found 2 cell mappings.
+Skipping cell0 since it does not contain hosts.
+Getting computes from cell 'cell1': a8ae9e83-53a3-4d7d-8bd2-dee3e3d7650f
+[00;36mINFO dbcounter [[01;36mNone req-e4376634-6bac-4c40-82fe-03ec8cc293fb [00;36mNone None[00;36m] [01;35m[00;36mRegistered counter for database nova_cell1[00m[00m
+[00;32mDEBUG dbcounter [[00;36m-[00;32m] [01;35m[00;32m[263959] Writer thread running[00m [00;33m{{(pid=263959) stat_writer /opt/stack/data/venv/lib/python3.12/site-packages/dbcounter.py:102}}[00m[00m
+Checking host mapping for compute host 'openstackcompute3': 5c464650-962c-40d1-8d22-606ec0d9e464
+Creating host mapping for compute host 'openstackcompute3': 5c464650-962c-40d1-8d22-606ec0d9e464
+Found 1 unmapped computes in cell: a8ae9e83-53a3-4d7d-8bd2-dee3e3d7650f
+T5 : 1769196857.025845944
+ [Host] 全部流程大功告成！
+ [Performance Report] Time Breakdown:
+------------------------------------------------
+T1 : 1769195777.467548787
+T2 : 1769195781.904308699
+T3 : 1769195802.038699087
+T4 : 1769196846.708799074
+T5 : 1769196857.025845944
+------------------------------------------------
+T_sng (4.43676 s)
+T_boot (20.1344 s)
+T_setup (1044.67 s)
+T_reg (10.317 s)
+------------------------------------------------
+TOTAL Construction Latency: 1079.56 seconds
+------------------------------------------------
+✅ [Client] 腳本結束。

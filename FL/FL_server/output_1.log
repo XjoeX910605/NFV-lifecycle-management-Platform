@@ -1,0 +1,69 @@
+[Server] Starting FL Server on port 5000
+[Server] Expected Clients: 1
+[Server] Data Partitioning: Splitting 50000 images among 1 clients.
+[Server] Client 1 connected: ('192.168.100.26', 44802)
+         Assigning Task: Images 0 to 50000
+
+[Server] All clients configured. Training Started.
+
+=== Round 1/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2105.6331s
+
+=== Round 2/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2188.3433s
+
+=== Round 3/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2166.2318s
+
+=== Round 4/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2177.0886s
+
+=== Round 5/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2184.1408s
+
+=== Round 6/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2180.1951s
+
+=== Round 7/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2180.5858s
+
+=== Round 8/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2154.5442s
+
+=== Round 9/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2163.4607s
+
+=== Round 10/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2147.9711s
+
+=== Round 11/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2159.2289s
+
+=== Round 12/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2154.6912s
+
+=== Round 13/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2134.3240s
+
+=== Round 14/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2148.6523s
+
+=== Round 15/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2139.5991s
+
+=== Round 16/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2137.4018s
+
+=== Round 17/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2148.0632s
+
+=== Round 18/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2141.4930s
+
+=== Round 19/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2174.1862s
+
+=== Round 20/20 ===
+    [Aggregated] Traffic: 10984.77 KB | Time: 2146.0127s
+
+[Server] FL Completed.
