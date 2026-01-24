@@ -1,0 +1,71 @@
+[Server] Starting FL Server on port 5000
+[Server] Expected Clients: 2
+[Server] Data Partitioning: Splitting 50000 images among 2 clients.
+[Server] Client 1 connected: ('192.168.100.25', 46112)
+         Assigning Task: Images 0 to 25000
+[Server] Client 2 connected: ('192.168.100.26', 55662)
+         Assigning Task: Images 25000 to 50000
+
+[Server] All clients configured. Training Started.
+
+=== Round 1/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1116.6961s
+
+=== Round 2/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1172.0860s
+
+=== Round 3/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1169.8060s
+
+=== Round 4/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1174.5477s
+
+=== Round 5/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1173.2489s
+
+=== Round 6/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1174.0992s
+
+=== Round 7/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1173.1156s
+
+=== Round 8/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1176.5782s
+
+=== Round 9/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1171.0375s
+
+=== Round 10/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1166.0659s
+
+=== Round 11/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1179.7618s
+
+=== Round 12/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1171.6176s
+
+=== Round 13/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1175.9267s
+
+=== Round 14/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1179.9791s
+
+=== Round 15/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1180.2190s
+
+=== Round 16/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1161.0285s
+
+=== Round 17/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1178.6601s
+
+=== Round 18/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1174.3884s
+
+=== Round 19/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1162.8772s
+
+=== Round 20/20 ===
+    [Aggregated] Traffic: 21969.54 KB | Time: 1170.4933s
+
+[Server] FL Completed.
