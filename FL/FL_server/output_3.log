@@ -1,0 +1,73 @@
+[Server] Starting FL Server on port 5000
+[Server] Expected Clients: 3
+[Server] Data Partitioning: Splitting 50000 images among 3 clients.
+[Server] Client 1 connected: ('192.168.100.25', 34524)
+         Assigning Task: Images 0 to 16666
+[Server] Client 2 connected: ('192.168.100.26', 47920)
+         Assigning Task: Images 16666 to 33332
+[Server] Client 3 connected: ('192.168.100.18', 43188)
+         Assigning Task: Images 33332 to 49998
+
+[Server] All clients configured. Training Started.
+
+=== Round 1/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 849.0816s
+
+=== Round 2/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 997.3503s
+
+=== Round 3/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 997.5492s
+
+=== Round 4/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 992.7810s
+
+=== Round 5/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 992.4872s
+
+=== Round 6/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 994.4361s
+
+=== Round 7/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 990.6005s
+
+=== Round 8/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 991.1006s
+
+=== Round 9/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 995.6199s
+
+=== Round 10/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 999.5592s
+
+=== Round 11/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 994.5748s
+
+=== Round 12/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 995.6796s
+
+=== Round 13/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 996.5995s
+
+=== Round 14/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 991.8958s
+
+=== Round 15/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 1002.0267s
+
+=== Round 16/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 986.0927s
+
+=== Round 17/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 993.9470s
+
+=== Round 18/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 996.3434s
+
+=== Round 19/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 991.5780s
+
+=== Round 20/20 ===
+    [Aggregated] Traffic: 32954.31 KB | Time: 990.6943s
+
+[Server] FL Completed.
