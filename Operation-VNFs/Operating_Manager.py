@@ -9,7 +9,7 @@ import json
 CONFIG_FILE = "ns_vnf_config.json"
 remote_user="stack"
 remote_ip="192.168.100.148"
-
+ENABLE_Deployment_MAPPING = False      # True: 啟動sat_id映射(有建出對應衛星節點) / False: 單純部署，不對應sat_id
 
 YELLOW = '\033[93m'
 GREEN = '\033[38;5;82m'
@@ -157,7 +157,7 @@ def deploy(ns_name):
 
     # Phase 4: Instantiation (實例化階段 t_inst)
     print(f"{GREEN}[Phase 4] 執行 NS Instantiation (osm ns-create)...{NC}")
-
+    
     # 部署 NS instance
     try:
         subprocess.run(
