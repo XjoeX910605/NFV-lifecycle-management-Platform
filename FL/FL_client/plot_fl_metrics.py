@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+from matplotlib.ticker import MaxNLocator
 
 # --- 設定字體與全域樣式 (為了學術論文排版) ---
 plt.rcParams.update({
@@ -39,6 +40,7 @@ def plot_accuracy():
     plt.title('FL Global Model Convergence')
     plt.xlabel('Communication Round')
     plt.ylabel('Test Accuracy')
+    plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.legend(loc='lower right')
     plt.tight_layout()
